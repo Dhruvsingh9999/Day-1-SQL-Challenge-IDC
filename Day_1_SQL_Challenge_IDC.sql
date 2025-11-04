@@ -2,7 +2,6 @@
 
 -- =======================================================
 -- 1. Table: patient
--- Stores individual patient records and their outcomes.
 -- =======================================================
 CREATE TABLE patient (
     patient_id VARCHAR(50) PRIMARY KEY,
@@ -10,29 +9,18 @@ CREATE TABLE patient (
     age INT,
     arrival_date DATE,
     departure_date DATE,
-    service VARCHAR(50), -- e.g., 'surgery', 'ICU', 'emergency'
-    satisfaction INT -- Rating from 1 to 100
+    service VARCHAR(50),
+    satisfaction INT 
 );
-
--- Example Data (based on screenshots - actual inserts would use the full path)
-/*
--- This is how you would normally insert data:
-INSERT INTO patient (patient_id, name, age, arrival_date, departure_date, service, satisfaction)
-VALUES
-('PAT-09494759', 'Richard Rodriguez', 24, '2025-12-13', '2025-12-14', 'surgery', 61),
-('PAT-05444084', 'Shannon Walker', 6, '2025-12-29', '2025-12-22', 'general_medicine', 83);
--- ... and so on for all 1000 rows
-*/
 
 
 -- =======================================================
 -- 2. Table: services_weekly
--- Stores weekly operational metrics for different hospital services.
 -- =======================================================
 CREATE TABLE services_weekly (
     week INT,
     month INT,
-    service VARCHAR(50), -- Foreign key relationship often goes here, but for simplicity, it's a string
+    service VARCHAR(50), 
     available_beds INT,
     patients_request INT,
     patients_admitted INT,
@@ -87,6 +75,7 @@ SELECT name, departure_date FROM patient ORDER BY departure_date ASC;
 
 -- Q8: Display records 11 through 20 from the patient table (10 records total).
 SELECT * FROM patient LIMIT 10 OFFSET 10;
+
 
 
 
